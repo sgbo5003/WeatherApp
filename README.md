@@ -4,7 +4,7 @@ Learning React Native by building a Weather App
 
 # part #0 (introduction)
 
-- s#0.0 Introduction
+- #0.0 Introduction
   - 날씨 앱을 만들 것이다.
   - 간단한 소개
 - #0.1 Requirements
