@@ -58,7 +58,7 @@ Learning React Native by building a Weather App
     - hot reload는 html, css와 같이 화면상에 즉각 변경이 필요한 작업에 사용하는게 좋고 live reload는 데이터 변경이 일어나는 작업에 사용하는게 좋다.
   - Android Emulator에서 개발자 메뉴 열기
     - `ctrl + m`
-- How does React Native Work?
+- #0.5 How does React Native Work?
 
   - 모바일 앱을 만드는 3가지 방법
     - 완전 native
@@ -83,3 +83,77 @@ Learning React Native by building a Weather App
   - <Text>
       - = <span>
   - style 지정
+
+  # part #1 (LOGIC)
+
+- #1.0 Layouts with Flexbox in React Native
+
+  - 웹사이트에서 모든 flex 박스의 디폴트는 로우(row)
+  - flex direction → 컬럼
+  - flex : 1 flex : 2 flex : 3
+
+    - 비율을 뜻함
+    - flex 1 , flex 1, flex 3
+
+      ![part%20#1%20(LOGIC)%2090d0b914d16144e1ba3f059eca595030/Untitled.png](<part%20#1%20(LOGIC)%2090d0b914d16144e1ba3f059eca595030/Untitled.png>)
+
+      ![part%20#1%20(LOGIC)%2090d0b914d16144e1ba3f059eca595030/Untitled%201.png](<part%20#1%20(LOGIC)%2090d0b914d16144e1ba3f059eca595030/Untitled%201.png>)
+
+      - 노란색 → flex : 1, 파란색 → flex : 3
+      - 화면의 1:3비율
+
+- #1.1 Loading Screen
+
+  - Loading.js 생성
+
+    - Loading.js
+
+      ```jsx
+      import React from "react";
+      import { StyleSheet, Text, View } from "react-native";
+
+      export default function Loading() {
+        return (
+          <View style={styles.container}>
+            <Text>getting the fucking weather</Text>
+          </View>
+        );
+      }
+
+      const styles = StyleSheet.create({
+        container: {
+          flex: 1,
+          justifyContent: "flex-end",
+          paddingHorizontal: 30,
+          paddingVertical: 100,
+        },
+      });
+      ```
+
+    - App.js
+
+      ```jsx
+      import React from "react";
+      import Loading from "./Loading";
+
+      export default function App() {
+        return <Loading />;
+      }
+      ```
+
+  - justifyContent
+
+    - justify-content 속성
+      - justify-content 속성은 플렉스 요소의 수평 방향 정렬 방식을 설정합니다.
+        1. flex-start : 기본 설정으로, 플렉스 요소는 플렉스 컨테이너의 앞쪽에서부터 배치됩니다.
+        2. flex-end : 플렉스 요소는 플렉스 컨테이너의 뒤쪽에서부터 배치됩니다.
+        3. center : 플렉스 요소는 플렉스 컨테이너의 가운데에서부터 배치됩니다.
+        4. space-between : 플렉스 요소는 요소들 사이에만 여유 공간을 두고 배치됩니다.
+        5. space-around : 플렉스 요소는 앞, 뒤, 그리고 요소들 사이에도 모두 여유 공간을 두고 배치됩니다.
+
+  - paddingHorizontal
+    - = paddingLeft & paddingRight
+  - paddingVertical
+    - = paddingTop & paddingBottom
+
+- #1.2 Getting the Location
